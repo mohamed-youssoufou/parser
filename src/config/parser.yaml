@@ -1,0 +1,20 @@
+## example ##
+
+auth:
+    method: POST
+    url: 'https://127.0.0.1:8000/api/auth'
+    verify_peer: false
+    verify_host: false
+    headers:
+        Content-Type: 'application/json'
+    parameters:
+        #query:
+        #    login:
+        #        constraints: false
+        #    password:
+        #        constraints: false
+        body:
+            login:
+                constraints: false
+            password:
+                constraints: false
