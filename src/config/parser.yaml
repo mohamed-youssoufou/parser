@@ -8,13 +8,34 @@ auth:
     headers:
         Content-Type: 'application/json'
     parameters:
-        #query:
-        #    login:
-        #        constraints: false
-        #    password:
-        #        constraints: false
         body:
             login:
                 constraints: false
             password:
                 constraints: false
+
+users_list:
+    method: 'GET'
+    url: '172.18.2.67/api/fiber'
+    verify_peer: false
+    verify_host: false
+    headers:
+        Content-Type: 'application/json'
+    parameters:
+        query:
+            login:
+                constraints: false
+            password:
+                constraints: false
+
+infos_by_fixe_number:
+    method: POST
+    url: 'http://172.18.0.56:8081/verdure/api/connector/bscs/getCustomerOrderNumber'
+    verify_peer: false
+    verify_host: false
+    headers:
+        Content-Type: 'application/json'
+    parameters:
+        json:
+            data:
+                telephone: '22221010'

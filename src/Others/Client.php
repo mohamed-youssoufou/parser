@@ -21,7 +21,7 @@ class Client
         $getInformationByKeyName = $data[$requestName];
         if(is_null($getInformationByKeyName))
             return JsonResponse::create(["error - this key does not exist"]);
-        $option = $parameters = $headers =  Array();
+        $option = Array();
         foreach($getInformationByKeyName as $baseKey => $baseValue){
             switch ($baseKey) {
                 case 'headers':
@@ -53,9 +53,9 @@ class Client
     }
 
     public function response(Object $objet){
-        $content = $objet->getContent(false);
+        $content = json_decode($objet->getContent(false), true);
         $statusCode = $objet->getStatusCode();
-        $headers['haseError'] = true;
+        $headers['hasError'] = true;
         $headers['statusCode'] = $statusCode;
         if($statusCode >= 200 && $statusCode <= 209){
             $headers['hasError'] = false;
